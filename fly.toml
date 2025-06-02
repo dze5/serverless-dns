@@ -88,11 +88,11 @@ kill_timeout = "15s"
 # community.fly.io/t/5490/3
   [checks]
     [checks.up]
-    # grace_period affects time taken for rolling deploys
-    grace_period = "15s"
-    interval = "15s"
-    method = "get"
-    path = "/health"
-    port = 8080
-    timeout = "2s"
-    type = "http"
+      # grace_period affects time taken for rolling deploys
+      grace_period = "15s"
+      interval = "15s"
+      method = "get"
+      path = "/check"
+      port = 53
+      timeout = "2s"
+      type = "http"
