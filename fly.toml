@@ -86,13 +86,13 @@ kill_timeout = "15s"
     restart_limit = 0
 
 # community.fly.io/t/5490/3
-  [[services.http_checks]]
-    interval = 8080
-    interval = 10000
-    grace_period = "5s"
+  [checks]
+    [checks.up]
+    # grace_period affects time taken for rolling deploys
+    grace_period = "15s"
+    interval = "15s"
     method = "get"
-    path = "/"
-    protocol = "http"
-    timeout = 2000
-    tls_skip_verify = false
-    [services.http_checks.headers]
+    path = "/health"
+    port = 8080
+    timeout = "2s"
+    type = "http"
