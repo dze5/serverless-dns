@@ -40,6 +40,23 @@ kill_timeout = "15s"
   [[services.ports]]
     port = 8080
 
+  [services.tcp]
+    protocol = "tcp"
+    internal_port = 53
+    processes = ["app"]
+
+  [services.udp]
+    protocol = "udp"
+    internal_port = 53
+    processes = ["app"]
+
+  [[services.tcp.ports]]
+    port = 53
+    handlers = ["tls"]
+
+  [[services.udp.ports]]
+    port = 53
+
   [services.concurrency]
     type = "connections"
     hard_limit = 775
