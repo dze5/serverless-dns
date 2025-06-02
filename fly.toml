@@ -86,13 +86,8 @@ kill_timeout = "15s"
     restart_limit = 0
 
 # community.fly.io/t/5490/3
-  [checks]
-    [checks.up]
-      # grace_period affects time taken for rolling deploys
-      grace_period = "15s"
-      interval = "15s"
-      method = "get"
-      path = "/check"
-      port = 53
-      timeout = "2s"
-      type = "http"
+  [[services.http_checks]]
+    path = "/configure"
+    port = 8080
+    interval = "5s"
+    timeout = "1s"
