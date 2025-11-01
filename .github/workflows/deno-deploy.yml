@@ -42,7 +42,7 @@ on:
         options:
         - dev
         - live
-
+ 
 env:
   DEPLOY_MODE: 'action'
   PROJECT_NAME: ${{ secrets.DENO_PROJECT_NAME || 'rdns' }}
